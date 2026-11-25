@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import { useI18n } from "@/components/i18n-provider";
 
-/** Localized 404 for a missing page inside a locale. */
 export default function NotFound() {
   const { dictionary, href } = useI18n();
   return (

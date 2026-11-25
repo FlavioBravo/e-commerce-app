@@ -17,7 +17,6 @@ type Props = {
   product?: Product;
 };
 
-/** Creates or updates a product after the catalog schema accepts the form. */
 export function ProductForm({ categories, product }: Props) {
   const { locale, dictionary, href } = useI18n();
   const router = useRouter();

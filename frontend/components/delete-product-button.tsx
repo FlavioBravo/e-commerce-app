@@ -10,7 +10,6 @@ import { ApiError } from "@/lib/errors";
 import { translateApiMessage } from "@/lib/messages";
 import { revalidateCatalog } from "@/lib/revalidate-catalog";
 
-/** Asks for confirmation, then deletes one product and refreshes the list. */
 export function DeleteProductButton({ productId, sku }: { productId: number; sku: string }) {
   const { locale, dictionary } = useI18n();
   const router = useRouter();

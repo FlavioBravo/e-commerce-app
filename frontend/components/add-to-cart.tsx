@@ -14,7 +14,6 @@ type Props = {
   wide?: boolean;
 };
 
-/** Adds one unit of a product. Out-of-stock products show a message instead of a button. */
 export function AddToCart({ productId, sku, name, unitPrice, stock, wide = false }: Props) {
   const { dictionary } = useI18n();
   const add = useCartStore((state) => state.add);

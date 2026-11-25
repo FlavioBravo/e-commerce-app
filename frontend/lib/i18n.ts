@@ -6,7 +6,6 @@ export type { Dictionary };
 
 const dictionaries: Record<Locale, Dictionary> = { es, en };
 
-/** Returns the dictionary for a supported locale. */
 export function getDictionary(locale: Locale): Dictionary {
   return dictionaries[locale];
 }

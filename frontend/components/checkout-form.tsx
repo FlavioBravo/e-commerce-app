@@ -16,7 +16,6 @@ import { formatMoney } from "@/lib/money";
 import { revalidateCatalog } from "@/lib/revalidate-catalog";
 import { checkoutRequestSchema, validationError } from "@/lib/schemas";
 
-/** Pays for the current cart. The server confirms price and stock. */
 export function CheckoutForm() {
   const { locale, dictionary, href } = useI18n();
   const ready = useCartReady();

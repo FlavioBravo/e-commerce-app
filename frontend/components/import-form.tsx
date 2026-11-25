@@ -11,7 +11,6 @@ import { translateApiMessage } from "@/lib/messages";
 import { revalidateCatalog } from "@/lib/revalidate-catalog";
 import type { ImportReport } from "@/lib/types";
 
-/** Uploads a catalog CSV and renders the row-by-row report. */
 export function ImportForm() {
   const { locale, dictionary } = useI18n();
   const [report, setReport] = useState<ImportReport | null>(null);

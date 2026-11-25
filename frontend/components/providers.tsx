@@ -7,12 +7,10 @@ import { useCartStore } from "@/lib/cart-store";
 
 const CartReadyContext = createContext(false);
 
-/** Whether the cart has finished reading localStorage. */
 export function useCartReady(): boolean {
   return useContext(CartReadyContext);
 }
 
-/** Provides React Query and rehydrates the cart before the count is shown. */
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
   const [ready, setReady] = useState(false);

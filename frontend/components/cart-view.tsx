@@ -7,7 +7,6 @@ import { useCartReady } from "@/components/providers";
 import { useCartStore } from "@/lib/cart-store";
 import { addMoney, formatMoney } from "@/lib/money";
 
-/** Lists cart lines, edits quantities, and links to checkout. */
 export function CartView() {
   const { dictionary, href } = useI18n();
   const ready = useCartReady();

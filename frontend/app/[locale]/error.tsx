@@ -2,10 +2,6 @@
 
 import { useI18n } from "@/components/i18n-provider";
 
-/**
- * Route error boundary for a locale segment.
- * The locale layout stays mounted, so this screen can read the active dictionary.
- */
 export default function LocaleError({ reset }: { error: Error & { digest?: string }; reset: () => void }) {
   const { dictionary } = useI18n();
 

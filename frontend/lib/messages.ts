@@ -43,7 +43,6 @@ const spanish: Record<string, string> = {
   "The product could not be saved.": "No se pudo guardar el producto.",
 };
 
-/** Translates a known API message. English is returned unchanged, and an unknown Spanish message stays in English. */
 export function translateApiMessage(locale: Locale, message: string): string {
   if (locale === "en") return message;
   const known = spanish[message];

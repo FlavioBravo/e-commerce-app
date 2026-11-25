@@ -13,7 +13,6 @@ type I18n = {
 
 const I18nContext = createContext<I18n | null>(null);
 
-/** Shares the active locale and dictionary with client components. */
 export function I18nProvider({
   locale,
   dictionary,
@@ -27,7 +26,6 @@ export function I18nProvider({
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }
 
-/** Reads the locale context. Throws when the provider is missing. */
 export function useI18n(): I18n {
   const value = useContext(I18nContext);
   if (!value) throw new Error("I18nProvider is missing.");

@@ -8,7 +8,6 @@ import { useCartReady } from "@/components/providers";
 import { useCartStore } from "@/lib/cart-store";
 import { locales, type Locale } from "@/lib/locale";
 
-/** Storefront header: catalog, admin, language switch, and the cart count. */
 export function Header() {
   const { locale, dictionary, href } = useI18n();
   const ready = useCartReady();

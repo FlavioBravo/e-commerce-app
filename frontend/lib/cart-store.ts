@@ -20,14 +20,6 @@ type CartState = {
   clear: () => void;
 };
 
-/**
- * Browser cart persisted in localStorage.
- * Hydration waits until `Providers` calls `persist.rehydrate`, so the first server render stays empty.
- *
- * `add` inserts one unit, or increases quantity up to the line stock.
- * `setQuantity` drops the line when the next quantity is below 1.
- * `remove` deletes one line. `clear` empties the cart after a successful payment.
- */
 export const useCartStore = create<CartState>()(
   persist(
     (set) => ({

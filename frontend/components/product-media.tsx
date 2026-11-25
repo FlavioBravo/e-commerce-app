@@ -19,10 +19,6 @@ type Props = {
   className?: string;
 };
 
-/**
- * Decorative category image. The files are 800×800 WebP and load lazily.
- * The product name sits beside the image, so the image itself has no alt text.
- */
 export function ProductMedia({ label, sizes, className = "" }: Props) {
   const src = artwork[hash(label) % artwork.length];
   return (

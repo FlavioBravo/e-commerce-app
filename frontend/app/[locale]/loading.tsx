@@ -1,7 +1,3 @@
-/**
- * Placeholder shown while a locale page is loading.
- * The locale layout, including the header, stays on screen.
- */
 export default function LocaleLoading() {
   return (
     <div role="status" aria-live="polite" className="grid gap-6">

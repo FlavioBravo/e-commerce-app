@@ -6,10 +6,6 @@ const DECIMAL_PATTERN = /^-?\d+(?:\.\d+)?$/;
 const INTEGER_PATTERN = /^-?\d+$/;
 const SKU_PATTERN = /^[A-Z0-9]+(?:-[A-Z0-9]+)*$/;
 
-/**
- * Turns a failed Zod parse into the same error shape the API returns.
- * Field messages stay in English so `translateApiMessage` can localize them.
- */
 export function validationError(message: string, error: z.ZodError): ApiError {
   return new ApiError(
     message,
@@ -67,7 +63,6 @@ function decimalText(label: "Price" | "Weight", maxPlaces: number, stripCurrency
     .transform((value) => (stripCurrency && value.startsWith("$") ? value.slice(1).trim() : value));
 }
 
-/** Product create and update payload. Matches the catalog rules enforced by the API. */
 export const productInputSchema = z.object({
   name: requiredText("Name", 200),
   sku: z
@@ -112,7 +107,6 @@ export const productInputSchema = z.object({
 
 export type ProductInput = z.output<typeof productInputSchema>;
 
-/** Checkout body sent to `POST /orders/`. */
 export const checkoutRequestSchema = z.object({
   items: z
     .array(
@@ -154,20 +148,14 @@ const adminSearchSchema = z.object({
 
 const resourceIdSchema = z.coerce.number().int().positive();
 
-/** Normalizes catalog query params. A missing or invalid page becomes 1. */
 export function parseCatalogSearch(query: { q?: string; category?: string; page?: string }) {
   return catalogSearchSchema.parse(query);
 }
 
-/** Normalizes the admin product list query params. */
 export function parseAdminSearch(query: { q?: string; page?: string }) {
   return adminSearchSchema.parse(query);
 }
 
-/**
- * Parses a positive integer route id.
- * Returns null when the segment is missing, fractional, or not a number.
- */
 export function parseResourceId(value: string): number | null {
   const parsed = resourceIdSchema.safeParse(value);
   return parsed.success ? parsed.data : null;

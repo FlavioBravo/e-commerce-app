@@ -1,4 +1,3 @@
-/** Product returned by the catalog API. Money and weight stay decimal strings. */
 export type Product = {
   id: number;
   sku: string;
@@ -10,7 +9,6 @@ export type Product = {
   weightKg: string;
 };
 
-/** One page of the catalog. */
 export type ProductList = {
   items: Product[];
   page: number;
@@ -18,13 +16,11 @@ export type ProductList = {
   total: number;
 };
 
-/** Category name used by search and the product form. */
 export type Category = {
   id: number;
   name: string;
 };
 
-/** One CSV row in an import report. */
 export type ImportRow = {
   line: number;
   sku: string | null;
@@ -33,7 +29,6 @@ export type ImportRow = {
   messages: string[];
 };
 
-/** Totals and per-row results from a CSV import. */
 export type ImportReport = {
   created: number;
   updated: number;
@@ -43,7 +38,6 @@ export type ImportReport = {
   rows: ImportRow[];
 };
 
-/** One line on a saved order. Prices are decimal strings. */
 export type OrderItem = {
   productId: number;
   sku: string;
@@ -53,7 +47,6 @@ export type OrderItem = {
   lineTotal: string;
 };
 
-/** Saved order, including the simulated payment reference. */
 export type Order = {
   id: number;
   status: string;
@@ -62,7 +55,6 @@ export type Order = {
   items: OrderItem[];
 };
 
-/** Extra detail attached to an API field error. */
 export type FieldDetail = {
   field?: string;
   message?: string;

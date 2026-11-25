@@ -1,7 +1,3 @@
-/**
- * Builds schema.org Product JSON-LD.
- * `<` is escaped so the payload can be embedded in a script tag.
- */
 export function productJsonLd(product: {
   name: string;
   sku: string;
