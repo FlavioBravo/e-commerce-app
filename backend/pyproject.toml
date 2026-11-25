@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "ecommerce-api"
+version = "0.1.0"
+description = "E-commerce catalog and purchase API"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.0"
+uvicorn = { version = "^0.32.0", extras = ["standard"] }
+sqlalchemy = { version = "^2.0.36", extras = ["asyncio"] }
+pydantic = "^2.10.0"
+alembic = "^1.14.0"
+psycopg2-binary = "^2.9.10"
+asyncpg = "^0.30.0"
+pydantic-settings = "^2.6.0"
+python-multipart = "^0.0.17"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+pytest-asyncio = "^0.24.0"
+httpx = "^0.28.0"
+black = "^24.10.0"
+isort = "^5.13.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["."]
+
+[tool.black]
+line-length = 119
+target-version = ["py312"]
+
+[tool.isort]
+profile = "black"
+line_length = 119
+known_first_party = ["src"]
