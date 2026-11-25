@@ -2,7 +2,7 @@
 
 Catalog, CSV import, simulated purchase, and a Next.js storefront.
 
-Example CSV downloaded on 2026-11-21. A copy used by the tests is in `backend/test/fixtures/Code_Challenge_E-Commerce.csv`. The same file is also at `data/Code_Challenge_E-Commerce.csv`.
+Example CSV downloaded on Saturday, November 21, 2026. A copy used by the tests is in `backend/test/fixtures/Code_Challenge_E-Commerce.csv`. The same file is also at `data/Code_Challenge_E-Commerce.csv`.
 
 ## Run locally
 
