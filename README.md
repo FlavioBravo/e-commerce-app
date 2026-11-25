@@ -65,6 +65,27 @@ Public catalog reads stay cached for 60 seconds under one cache tag. Admin and o
 
 `make unit-test-api` runs the pytest suite in the API container. `make unit-test-ui` runs the storefront suite with Jest and React Testing Library in the Next.js container. The storefront tests cover the catalog, cart, header, product form, checkout, CSV import, delete, and catalog revalidation.
 
+## Accessibility
+
+Reviewed on the rendered storefront against WCAG 2.2 AA. It does not meet AA yet.
+
+In place:
+
+- The page language is `en` or `es`, matching the route. The active language uses `aria-current`.
+- The layout exposes `header`, `nav`, and `main`. Controls are links, buttons, and form fields.
+- Catalog search, the category filter, and the product form have visible labels. The search and cart icons have an accessible name, and the icons are hidden from assistive tech.
+- Category artwork is decorative (`alt=""`). Product, cart, checkout, admin, order, and error pages have an `h1`. The loading state is a polite live region.
+- Body text (`#222` on white, 15.9:1) and secondary text (`#6a6a6a` on white, 5.4:1) meet AA. The search icon meets the 3:1 minimum for graphics.
+
+Still open:
+
+- Primary buttons (add to cart, pay, save, import) are white on `#ff385c` at 3.5:1. AA text needs 4.5:1.
+- The admin search field has no lasting label, and its placeholder (`#9ca3af` on white, 2.5:1) is below the text minimum.
+- Search, the category select, the admin search, and the product form use `outline-none`, so keyboard focus is invisible on those fields.
+- The cart link is named "Cart" or "Carrito" and leaves out the visible item count.
+- A failed save shows the error as text. The invalid field is unmarked, the message is not a live region, and focus stays on the submit button. Checkout and CSV import follow the same pattern.
+- There is no skip link. Catalog cards are announced with the decorative category initial, and the catalog has no `h1`. Admin "Edit" and "Delete" do not name the product. A cart quantity field does not name its product when the cart has more than one line.
+
 ## Alternatives
 
 ### DB
